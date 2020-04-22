@@ -1,0 +1,16 @@
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\zig.exe
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\zig.deps.json
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\zig.runtimeconfig.json
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\zig.runtimeconfig.dev.json
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\zig.dll
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\zig.pdb
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\McMaster.Extensions.CommandLineUtils.dll
+C:\Users\c2tab\zig\bin\Debug\netcoreapp3.1\Microsoft.Extensions.CommandLineUtils.dll
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.csprojAssemblyReference.cache
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.csproj.CoreCompileInputs.cache
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.AssemblyInfoInputs.cache
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.AssemblyInfo.cs
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.csproj.CopyComplete
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.dll
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.pdb
+C:\Users\c2tab\zig\obj\Debug\netcoreapp3.1\zig.genruntimeconfig.cache
