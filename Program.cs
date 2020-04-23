@@ -8,23 +8,30 @@ namespace zig
     {
         static void Main(string[] args)
         {
-            var app = new CommandLineApplication();
+            var app = new CommandLineApplication();            
+            var optionCommand = app.Option("-z|--zigcommand <ZIGCOMMAND>", "The command you want zig to execute", CommandOptionType.SingleValue);
 
+            app.OnExecute(() =>
+            {
+                var command = optionCommand.HasValue()
+                    ? optionCommand.Value()
+                    : "";      
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\\---ZIG---\\");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("/---ZAG---/");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\\---GO!---\\");
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 var directory = Directory.GetCurrentDirectory();
-                // TODO: Parse through and get all file paths of zig files
-                // TODO: Generate the final HTML files and put them in the correct locations
-                var optionCommand = app.Option("-z|--zigcommand <ZIGCOMMAND>", "The command you want zig to execute", CommandOptionType.SingleValue);
+                var directorySource = directory + "/source";
+                var fileGenerator = new FileGenerator(new HtmlFileBuilder());
+                fileGenerator.DissectContent(directorySource, directory);
+                Console.ForegroundColor = ConsoleColor.White;
+                return 0;
+            });
 
-                app.OnExecute(() =>
-                {
-                    var command = optionCommand.HasValue()
-                        ? optionCommand.Value()
-                        : "";                    
-                    return 0;
-                });
-
-             app.Execute(args);
-            Console.WriteLine(HtmlFileBuilder.BuildHtmlFromConfigFile("C:/Users/c2tab/zig/example.zig"));
-        }              
+            app.Execute(args);
+        }          
     }
 }

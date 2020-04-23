@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-public class HtmlFileBuilder{
-    public static string BuildHtmlFromConfigFile(string filePath){
+public class HtmlFileBuilder : IHtmlBuilder {
+
+    public string BuildHtmlFromConfigFile(string filePath){
+        //TODO Get file name
         var content = File.ReadAllText(filePath);
 
         var slideInfoParsed = content.Split("-----");
@@ -41,7 +43,51 @@ public class HtmlFileBuilder{
         {
             htmlBuilder.AppendLine(slide.PrintSlideHtml());
         }
-        return htmlBuilder.ToString();
+        
+        var dynamicContent = htmlBuilder.ToString();
+
+        return $@"
+<!doctype html>
+<html>
+	<head>
+		<meta charset=""utf-8"">
+		<meta name=""viewport"" content=""width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"">
+
+		<title>{Path.GetFileNameWithoutExtension(filePath)}</title>
+
+		<link rel=""stylesheet"" href=""../css/reset.css"">
+		<link rel=""stylesheet"" href=""../css/reveal.css"">
+		<link rel=""stylesheet"" href=""../css/theme/bobtabor.css"">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel=""stylesheet"" href=""../lib/css/monokai.css"">
+
+	</head>
+	<body>
+		<div class=""reveal"">
+
+			<div class=""slides"">
+            { dynamicContent }
+            </div>
+		</div>
+
+		<script src=""../js/reveal.js""></script>
+
+		<script>
+			Reveal.initialize({{
+				hash: true,
+				dependencies: [
+					{{ src: '../plugin/markdown/marked.js' }},
+					{{ src: '../plugin/markdown/markdown.js' }},
+					{{ src: '../plugin/highlight/highlight.js' }},
+					{{ src: '../plugin/notes/notes.js', async: true }}
+				],
+				width: '80%',
+				center: false
+			}});
+		</script>
+	</body>
+</html>";
     }
 
     private static string GetSlideName(string slideInfo){
