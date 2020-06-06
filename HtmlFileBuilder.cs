@@ -7,7 +7,9 @@ using System.Text;
 public class HtmlFileBuilder : IHtmlBuilder {
 
     public string BuildHtmlFromConfigFile(string filePath){
-        //TODO Get file name
+
+        Console.WriteLine($"Working on: {filePath}");
+
         var content = File.ReadAllText(filePath);
 
         var slideInfoParsed = content.Split("-----");

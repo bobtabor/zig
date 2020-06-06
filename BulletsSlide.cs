@@ -32,11 +32,20 @@ public class BulletsSlide : SlideContent
                     var j = i;
                     var outOfPoints = false;
                     j++;
-                    while (!outOfPoints && j < lineArray.Length) {                        
-                        var point = Regex.Split(lineArray[j], @"-:\s");                        
+                    while (!outOfPoints && j < lineArray.Length) {
+                        /*
+                        var point = Regex.Split(lineArray[j], @"-\s");                        
                         outOfPoints = point.Length == 1;
                         if (!outOfPoints){
                             Points.Add(point[1]);
+                        }
+                        j++;
+                        */
+
+                        var point = lineArray[j];
+                        if (point.StartsWith("- "))
+                        {
+                            Points.Add(point.Replace("- ", ""));
                         }
                         j++;
                     }
@@ -49,11 +58,11 @@ public class BulletsSlide : SlideContent
     public override string PrintSlideHtml()
     {
         var sb = new StringBuilder();
-        sb.AppendLine(@"<section>
-					<h2>Fragments</h2>
+        sb.AppendLine($@"               <section>
+					<h2>{Title}</h2>
 					<p><small>&nbsp;</small></p>");
         foreach (var point in Points){
-            sb.AppendLine($"<p class=\"fragment\">{point}</p>");
+            sb.AppendLine($"                    <p class=\"fragment\">&#8226; {point}</p>");
         }
         sb.AppendLine("</section>");
         

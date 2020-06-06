@@ -33,7 +33,8 @@ public class CodeSlide : SlideContent
                 if (property[0].Trim() == "highlights")
                     Highlights = property[1].Trim();
                 if (property[0].Trim() == "code" || property[0].Trim() == "code:"){
-                    inCode = true;                                            
+                    inCode = true;
+                    continue;
                 }
                 if (inCode){
                     if (lineArray[i] == "```"){
@@ -54,12 +55,12 @@ public class CodeSlide : SlideContent
 
     public override string PrintSlideHtml()
     {
-        return $@"<section>
+        return $@"              <section>
 
 					<h2>{Title}</h2>
 					<p><small>&nbsp;</small></p>
 					<pre><code class=""hljs"" data-trim data-line-numbers=""{Highlights}"">
-                    {Code}
+{Code}
 					</code></pre>					
 				</section>";
     }

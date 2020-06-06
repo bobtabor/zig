@@ -9,9 +9,9 @@ captions-url: http://github.com/bobtabor/captions/csharp-if-elseif-else
 -----bullets
 title: Fragments
 points:
--: Point 1
--: Point 2
--: Point 3
+- Point 1
+- Point 2
+- Point 3
 
 -----code 
 title: Pretty code

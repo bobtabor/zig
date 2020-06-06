@@ -34,6 +34,6 @@ public class TitleSlide : SlideContent
         return $@"<section class=""center"">
 					<p><small>{CourseTitle}</small></p>
 					<h1 style=""line-height: 5rem;"">{VideoTitle}</h1>					
-				</section>";
+			    </section>";
     }
 }

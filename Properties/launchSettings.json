@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "zig": {
+      "commandName": "Project",
+      "commandLineArgs": "-s C:\\source\\repos\\slides -d C:\\slides "
+    }
+  }
+}
